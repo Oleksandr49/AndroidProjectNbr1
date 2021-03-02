@@ -48,14 +48,11 @@ public class MyOnScrollListener extends RecyclerView.OnScrollListener {
 
         if (!isLoading && !isLastPage) {
             if ((visibleItemCount + lastVisibleItemPosition) >= totalItemCount && lastVisibleItemPosition >= 0 && totalItemCount >= PAGE_SIZE) {
-                loadMoreItems();
+                if(adapter.buffer.isEmpty()){
+                    adapter.loadMoreItemsToBuffer();
+                }
+                adapter.loadMoreItemsFromBuffer();
             }
-        }
-    }
-
-    private void loadMoreItems(){
-        for(int i = 0; i < 12; i++){
-            adapter.addITemToList(new MyListData(R.drawable.germini_flower_pink_petals_608384));
         }
     }
 }

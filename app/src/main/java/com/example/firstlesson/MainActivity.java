@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeRecyclerView(){
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
-        for(int i = 0; i < 12; i++){
-            adapter.addITemToList(new MyListData(R.drawable.lion));
-        }
+        adapter.initAdapterItems();
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnScrollListener(new MyOnScrollListener(adapter, layoutManager));

@@ -3,18 +3,18 @@ package com.example.firstlesson;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
+public class MyListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private final List<MyListData> myListDataList = new ArrayList<>();
+
+    public final List<MyListDataItem> buffer = new ArrayList<>(20);
+    private final List<MyListDataItem> myListDataListItem = new ArrayList<>();
 
     @NonNull
     @Override
@@ -26,27 +26,28 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder (ViewHolder holder, int position) {
-        holder.imageView.setImageResource(myListDataList.get(position).getImgId());
+        holder.imageView.setImageResource(myListDataListItem.get(position).getImgId());
     }
 
     @Override
     public int getItemCount () {
-        return myListDataList.size();
+        return myListDataListItem.size();
     }
 
-    public void addITemToList(MyListData item){
-        myListDataList.add(item);
-
+    public void initAdapterItems(){
+        loadMoreItemsToBuffer();
+        loadMoreItemsFromBuffer();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public ConstraintLayout constraintLayout;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
-            constraintLayout = (ConstraintLayout)itemView.findViewById(R.id.constraintLayout);
+    public void loadMoreItemsToBuffer(){
+        while (buffer.size() < 20){
+            buffer.add(new MyListDataItem(R.drawable.germini_flower_pink_petals_608384));
         }
+    }
+
+    public void loadMoreItemsFromBuffer(){
+        myListDataListItem.addAll(buffer);
+        buffer.clear();
+        loadMoreItemsToBuffer();
     }
 }

@@ -1,15 +1,12 @@
 package com.example.firstlesson;
 
-public class MyListData {
+public class MyListDataItem {
     private int imgId;
 
-    public MyListData( int imgId) {
+    public MyListDataItem(int imgId) {
         this.imgId = imgId;
     }
     public int getImgId() {
         return imgId;
-    }
-    public void setImgId(int imgId) {
-        this.imgId = imgId;
     }
 }
