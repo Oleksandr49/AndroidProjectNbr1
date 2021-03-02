@@ -48,9 +48,6 @@ public class MyOnScrollListener extends RecyclerView.OnScrollListener {
 
         if (!isLoading && !isLastPage) {
             if ((visibleItemCount + lastVisibleItemPosition) >= totalItemCount && lastVisibleItemPosition >= 0 && totalItemCount >= PAGE_SIZE) {
-                if(adapter.buffer.isEmpty()){
-                    adapter.loadMoreItemsToBuffer();
-                }
                 adapter.loadMoreItemsFromBuffer();
             }
         }

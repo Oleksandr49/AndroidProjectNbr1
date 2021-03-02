@@ -1,12 +1,12 @@
 package com.example.firstlesson;
 
 public class MyListDataItem {
-    private int imgId;
+    private final String imgURL;
 
-    public MyListDataItem(int imgId) {
-        this.imgId = imgId;
+    public MyListDataItem(String imgURL) {
+        this.imgURL = imgURL;
     }
-    public int getImgId() {
-        return imgId;
+    public String getImgId() {
+        return imgURL;
     }
 }
