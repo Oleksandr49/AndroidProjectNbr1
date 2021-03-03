@@ -1,10 +1,8 @@
 package com.example.firstlesson;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyListAdapter extends RecyclerView.Adapter<ViewHolder> implements AdapterCallBack {
+public class MyListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private final List<String> imageUrl = new ArrayList<>();
 
@@ -39,10 +37,5 @@ public class MyListAdapter extends RecyclerView.Adapter<ViewHolder> implements A
 
     public void addItemToAdapter(String imageUrl){
         this.imageUrl.add(imageUrl);
-    }
-
-    @Override
-    public void notify(int startingPosition, int itemsCount) {
-        this.notifyItemRangeInserted(startingPosition, itemsCount);
     }
 }
