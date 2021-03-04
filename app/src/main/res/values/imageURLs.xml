@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="imageURLS">
+        <item name="image1">https://homepages.cae.wisc.edu/~ece533/images/airplane.png</item>
+        <item name="image2">https://homepages.cae.wisc.edu/~ece533/images/arctichare.png</item>
+        <item name="image3">https://homepages.cae.wisc.edu/~ece533/images/baboon.png</item>
+        <item name="image4">https://homepages.cae.wisc.edu/~ece533/images/barbara.png</item>
+        <item name="image5">https://homepages.cae.wisc.edu/~ece533/images/boat.png</item>
+        <item name="image6">https://homepages.cae.wisc.edu/~ece533/images/cat.png</item>
+        <item name="image7">https://homepages.cae.wisc.edu/~ece533/images/fruits.png</item>
+        <item name="image8">https://homepages.cae.wisc.edu/~ece533/images/girl.png</item>
+        <item name="image9">https://homepages.cae.wisc.edu/~ece533/images/monarch.png</item>
+        <item name="image10">https://homepages.cae.wisc.edu/~ece533/images/peppers.png</item>
+        <item name="image11">https://homepages.cae.wisc.edu/~ece533/images/watch.png</item>
+    </string-array>
+</resources>
