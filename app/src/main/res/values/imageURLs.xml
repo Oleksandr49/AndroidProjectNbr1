@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="imageURLS">
+    <string-array name="imageUrls">
         <item name="image1">https://homepages.cae.wisc.edu/~ece533/images/airplane.png</item>
         <item name="image2">https://homepages.cae.wisc.edu/~ece533/images/arctichare.png</item>
         <item name="image3">https://homepages.cae.wisc.edu/~ece533/images/baboon.png</item>

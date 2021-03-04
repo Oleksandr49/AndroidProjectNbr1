@@ -36,6 +36,9 @@ public class MyListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
 
     public void addItemsToAdapter(List <String> imageUrls){
+        int preCount = imageUrl.size();
         this.imageUrl.addAll(imageUrls);
+
+        notifyItemRangeInserted(preCount, imageUrl.size() - 1);
     }
 }

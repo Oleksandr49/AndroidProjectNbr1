@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
     private MyListAdapter adapter;
     private Boolean isLoading = false;
-    private int itemsAdded = 0;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -45,19 +44,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if(newState == 0){
-                    notifyItemsAdded();
-                }
-            }
-
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+
+                if (manager == null)
+                    return;
 
                 int visibleItemCount = manager.getChildCount();
                 int totalItemCount = manager.getItemCount();
@@ -81,17 +74,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadMore(){
-        itemsAdded = 0;
         if(!isLoading) {
             isLoading = true;
-            ArrayList<String> urls = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.imageURLS)));
-            adapter.addItemsToAdapter(urls);
-            itemsAdded = urls.size();
+            adapter.addItemsToAdapter(Arrays.asList(getResources().getStringArray(R.array.imageUrls)));
         }
-        isLoading=false;
-    }
-
-    private void notifyItemsAdded(){
-        adapter.notifyItemRangeInserted(adapter.getItemCount()-1, itemsAdded);
+        isLoading = false;
     }
 }
