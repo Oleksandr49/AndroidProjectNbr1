@@ -35,7 +35,7 @@ public class MyListAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
 
-    public void addItemToAdapter(String imageUrl){
-        this.imageUrl.add(imageUrl);
+    public void addItemsToAdapter(List <String> imageUrls){
+        this.imageUrl.addAll(imageUrls);
     }
 }

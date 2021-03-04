@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeRecyclerView(){
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         adapter = new MyListAdapter();
         loadMore();
@@ -86,10 +85,8 @@ public class MainActivity extends AppCompatActivity {
         if(!isLoading) {
             isLoading = true;
             ArrayList<String> urls = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.imageURLS)));
-            for (String item : urls) {
-                adapter.addItemToAdapter(item);
-                itemsAdded++;
-            }
+            adapter.addItemsToAdapter(urls);
+            itemsAdded = urls.size();
         }
         isLoading=false;
     }
